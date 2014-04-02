@@ -13,10 +13,6 @@ class MyController < ControllerBase
   def go
     # render_content("hello world!", "text/html")
 
-    # after you have template rendering, uncomment:
-   # render :show
-
-    # after you have sessions going, uncomment:
    session["count"] ||= 0
    session["count"] += 1
    render :counting_show

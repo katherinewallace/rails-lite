@@ -1,9 +1,7 @@
 require 'uri'
 require 'debugger'
-require_relative 'hash_method'
 
 class Params
-  include HashHelper
 
   def initialize(req, route_params = {})
     @params = route_params
@@ -40,7 +38,7 @@ class Params
   
   private
   
-  def hash_deep_merge
+  def hash_deep_merge(first, second)
     merger = proc { |key, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : v2 }
     first.merge(second, &merger)
   end
